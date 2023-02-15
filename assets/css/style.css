@@ -1,7 +1,7 @@
 /*
  * Theme Name: Pixel Perfect Portfolio
- * Author: Pixel Perfect
- * Author URI/Mail: pixelperfectmk@gmail.com
+ * Author: Giewen Pinlac  c. Pixel Perfect
+ * Author URI/Mail: giewenpinlac@gmail.com
  * Version: 1.0
  */
 
@@ -97,8 +97,8 @@ html, body {
 
 .rectangle i,
 .big-rectangle img,
-.rectangle span,
-.rectangle img {
+.rectangle span
+ {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2053,7 +2053,7 @@ html, body {
 /* Sections background: Quote */
 .section-quote {
   background: url(../img/mybg1.jpg) center no-repeat fixed;
-  background-size: 100%;
+  background-size: cover;
 }
 
 .section-quote p {
@@ -2068,7 +2068,7 @@ html, body {
 /* Sections background: Me */
 .section-me {
   background: url(../img/mybg3.jpg) center no-repeat fixed;
-  background-size: 100%;
+  background-size: cover;
 }
 
 .section-me h2 {
@@ -2080,7 +2080,7 @@ html, body {
 /* Sections background: Twitter */
 .section-twitter {
   background: url(../img/mybg2.jpg) center no-repeat fixed;
-  background-size: 100%;
+  background-size: cover;
 }
 
 .section-twitter .container {
