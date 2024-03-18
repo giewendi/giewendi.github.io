@@ -1226,6 +1226,7 @@ html, body {
 
 @media only screen and (max-width: 767px) {
   /* Section: Services */
+  
   .section-services .container-fluid {
     padding: 60px 15px 30px;
   }
@@ -1246,8 +1247,8 @@ html, body {
   .section-services .carousel-indicators a:hover .service .rectangle,
   .section-services .carousel-indicators .service .rectangle {
     margin-bottom: 0;
-    height: 28px;
-    width: 28px;
+    height: 35px;
+    width: 35px;
   }
   .section-services .carousel-indicators .active .service .rectangle i,
   .section-services .carousel-indicators a:hover .service .rectangle i,
@@ -1786,7 +1787,7 @@ html, body {
     content: none;
   }
   .timeline > li .timeline-rectangle {
-    disply: none;
+    display: none;
   }
 }
 
@@ -2410,27 +2411,42 @@ textarea.form-control {
   }
 }
 
-
-.service img{
-  width: 30px;
-}
-.active .service img{
-  width: 50px;
-}
-.service img:hover{
-  width: 50px;
-}
-
-
 .second-btn{
   background-color: lightblue;
   border: solid lightblue;
-  color: #196fc2;
+  color: #00407c;
   padding-left: 10px;
 }
 .second-btn{
   background-color: lightblue;
   border: solid lightblue;
-  color: #196fc2;
+  color: #00407c;
   padding-left: 10px;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .service img{
+    width: 30px;
+    margin-top: -5px;
+  }
+  .active .service img{
+    width: 50px;
+  }
+  .service img:hover{
+    width: 50px;
+  }
+}
+
+@media only screen and (max-width: 767px){
+  .service img{
+    width: 20px;
+    margin-top: 0;
+  }
+  .active .service img{
+    width: 25px;
+  }
+  .service img:hover{
+    width: 25px;
+  }
 }
