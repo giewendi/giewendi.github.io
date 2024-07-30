@@ -1,7 +1,21 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', submitForm);
+  } else {
+    console.error('Form element not found.');
+  }
+});
+
 function submitForm(event) {
   event.preventDefault(); // Prevent form from submitting the default way
 
-  const form = document.getElementById('contact');
+  const form = document.getElementById('contactForm');
+  if (!form) {
+    console.error('Form element not found during submit.');
+    return;
+  }
+
   const formData = new FormData(form);
 
   console.log('Submitting form...');
