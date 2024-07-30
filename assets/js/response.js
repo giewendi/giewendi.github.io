@@ -21,7 +21,7 @@ function submitForm(event) {
   console.log('Submitting form...');
   console.log([...formData.entries()]); // Log the form data being sent
 
-  fetch('https://script.google.com/macros/s/AKfycbyDm9F7Dx23g_slqz4QdppdwpiIJDu3q_BXFBNnzR8EHOiJQNewwigLOR0hjcFkZJso7w/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbyPo_JacUPSYZkmReMg8DE8a16ELKw-WsgrMmvGSWjahgmAe6ahgMizkbp2iSEJ-2kuHg/exec', {
     method: 'POST',
     body: formData,
   })
