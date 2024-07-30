@@ -1,11 +1,28 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxwi1TbPCzDRDK8FKUdHcg9POXBSp0yJn9Lw3XLB-YWAODyy4eZvPgmrCS2K_c3x-EB/exechttps://script.google.com/macros/s/AKfycbzmKfw-GhAD1Jf38FsnnMEf38L5tzzFHFKmBHv1A3YdiOZnqL0P8BwHgL0-s9HIKMGfVg/exec'
+function submitForm(event) {
+  event.preventDefault(); // Prevent form from submitting the default way
 
-const form = document.forms['contact-form']
+  const form = document.getElementById('contact');
+  const formData = new FormData(form);
 
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-  .then(response => alert("Thank you! your form is submitted successfully." ))
-  .then(() => { window.location.reload(); })
-  .catch(error => console.error('Error!', error.message))
-})
+  console.log('Submitting form...');
+  console.log([...formData.entries()]); // Log the form data being sent
+
+  fetch('https://script.google.com/macros/s/AKfycbyDm9F7Dx23g_slqz4QdppdwpiIJDu3q_BXFBNnzR8EHOiJQNewwigLOR0hjcFkZJso7w/exec', {
+    method: 'POST',
+    body: formData,
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Response from server:', data); // Log the response from the server
+    if (data.result === 'success') {
+      alert('Thank you! your form is submitted successfully.');
+      location.reload();
+    } else {
+      alert('Error: ' + data.error);
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred while submitting the form.');
+  });
+}
