@@ -7,7 +7,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     data[key] = value;
   });
 
-  fetch('https://script.google.com/macros/s/AKfycbwq0GeHj1tu3sUSrSVZw_PrSNrIXcv7sn9G0wOJTCF2aTizLuyc2Ow-jeAwdSax7qGWWw/exec', { // Replace with your web app URL
+  fetch('https://script.google.com/macros/s/AKfycbzl-Us7NdmIMXrngYzP4-ju2nf_gTPkACGY4JvhGYnkaWz5GVoNGSTOg_TMSHa94clSrQ/exec', { // Replace with your web app URL
     method: 'POST',
     contentType: 'application/json',
     body: JSON.stringify(data)
