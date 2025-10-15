@@ -1,0 +1,177 @@
+/* ===================================
+   UI ENHANCEMENTS - MODERN ADDITIONS
+   =================================== */
+
+/* Card Styles with hover effects */
+.feature-about,
+.main-service {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-about:hover,
+.main-service:hover {
+  transform: translateY(-5px);
+}
+
+/* Smooth fade-in animations for sections */
+.site-section {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Progress bars with animation */
+.progress-bar {
+  animation: progressLoad 1.5s ease-out;
+}
+
+@keyframes progressLoad {
+  from {
+    width: 0;
+  }
+}
+
+/* Social icons enhanced hover */
+.section-networks a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-networks a:hover {
+  transform: rotate(45deg) scale(1.15);
+  box-shadow: 0 8px 25px rgba(25, 111, 194, 0.4);
+}
+
+/* Form inputs modern styling */
+.form-control:focus {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Navigation smooth appearance */
+.site-navigation.affix {
+  animation: slideDown 0.3s ease-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Client logos enhanced hover */
+.client {
+  transition: all 0.4s ease;
+}
+
+.client:hover {
+  transform: scale(1.1);
+}
+
+/* Service cards in portfolio carousel */
+.service {
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators .active .service,
+.carousel-indicators a:hover .service {
+  animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Counter animation enhancement */
+.counter {
+  transition: all 0.3s ease;
+}
+
+.counter:hover {
+  transform: translateY(-8px);
+}
+
+.counter:hover .rectangle {
+  transform: rotate(45deg) scale(1.1);
+  box-shadow: 0 10px 30px rgba(25, 111, 194, 0.3);
+}
+
+/* Modal improvements */
+.modal-content {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Improved loading states */
+button:disabled,
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Scroll reveal effect for sections */
+@media (prefers-reduced-motion: no-preference) {
+  .section-hello,
+  .section-about,
+  .section-services {
+    opacity: 0;
+    animation: revealSection 1s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+
+  @keyframes revealSection {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Enhanced focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid #196fc2;
+  outline-offset: 3px;
+}
+
+/* Improved text selection */
+::selection {
+  background-color: #196fc2;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #196fc2;
+  color: #ffffff;
+}
+
+/* Loading animation for images */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img:not([src]) {
+  opacity: 0;
+}

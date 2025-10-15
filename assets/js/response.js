@@ -1,22 +1,36 @@
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  var formData = new FormData(this);
-  var data = {};
-  formData.forEach(function(value, key){
-    data[key] = value;
-  });
+  var submitBtn = this.querySelector('button[type="submit"]');
+  var originalBtnText = submitBtn.textContent;
 
-  fetch('https://script.google.com/macros/s/AKfycbzl-Us7NdmIMXrngYzP4-ju2nf_gTPkACGY4JvhGYnkaWz5GVoNGSTOg_TMSHa94clSrQ/exec', { // Replace with your web app URL
-    method: 'POST',
-    contentType: 'application/json',
-    body: JSON.stringify(data)
+  // Disable button and show loading state
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  var formData = new FormData(this);
+
+  // Convert FormData to URL parameters for Google Apps Script
+  var params = new URLSearchParams(formData).toString();
+  var url = 'https://script.google.com/macros/s/AKfycbxGqbKH75_2wqvls-sfK__e1RpE6p-vzDZouG0Lmb6zG6yyuy12tWiX6t6Lsckq1245gQ/exec?' + params;
+
+  // Use fetch with no-cors mode to bypass CORS restrictions
+  fetch(url, {
+    method: 'GET',
+    mode: 'no-cors',
+    redirect: 'follow'
   })
-  .then(response => response.text())
-  .then(result => {
-    alert('Form submitted successfully!');
+  .then(function() {
+    // With no-cors, we can't read the response, so assume success
+    alert('✓ Message sent successfully! I will get back to you soon.');
+    document.getElementById('contactForm').reset();
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
   })
-  .catch(error => {
-    alert('Error submitting form: ' + error.message);
+  .catch(function(error) {
+    console.error('Error:', error);
+    alert('⚠ Could not send message. Please email me directly at giewenpinlac@gmail.com');
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
   });
 });

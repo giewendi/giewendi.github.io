@@ -195,7 +195,24 @@ $(function () {
       };
     }( jQuery ));
 
-    if($('#grid').length >0 ) { 
+    if($('#grid').length >0 ) {
       shuffleme.init(); //filter portfolio
     };
+
+// Mobile touch support for portfolio items
+    if ($(window).width() <= 767) {
+        $('.portfolio-item').on('touchstart', function(e) {
+            // Remove active class from all other items
+            $('.portfolio-item').not(this).removeClass('active');
+            // Toggle active class on tapped item
+            $(this).toggleClass('active');
+        });
+
+        // Close active state when tapping outside
+        $(document).on('touchstart', function(e) {
+            if (!$(e.target).closest('.portfolio-item').length) {
+                $('.portfolio-item').removeClass('active');
+            }
+        });
+    }
 }());
